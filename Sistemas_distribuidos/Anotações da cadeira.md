@@ -1,3 +1,4 @@
+
 Primeira aula tivemos um panorama geral - ainda sem especificidades.
 Uma das coisas mais importante em sis dist é ter controle de clock
 	- ordem de operações importa nesse caso
@@ -309,3 +310,25 @@ Sistema pra verificaçaõ de atividade extra-terrestre
 Screen-saver de windows que monta request quando o PC fica inativo pro PC da borda (com o screensaver) processsar
 Tipo um P2P centralizado (o servidor central recebe as computações e passa as tarefas)
 É P2P (comp na borda) / Cliente-server (screen-saver cliente chama o server central)
+
+___
+## Blockchain
+cadeias descentralizadas de dados
+Usam redes P2P
+
+Todos os nós são Full nodes independentes (mirrors dos outros nós) - justamente pra uma replicação Full de todos pra todos.
+
+### Smart Contract
+- Código aberto gravado na blockchain
+	- o que tá lá dentro é imutável - importante pra auditoria de sistema
+	- uma alteração aqui quebra a leitura de chain do blockchain
+- Necessariamente, está atrelado a um trigger
+- gera eventos/dados que são gravados na B.C.
+- Permite auditoria
+
+Guardar qualquer coisa em blockchain é guardar numa coleção de nós
+Hyperledger lida com a blockchain pra ti - sem maiores problemas
+
+![[Pasted image 20261103200223.png]]
+A mineração é toda no esquema de cálculo de hash - um dos nós vai calcular o hash e mandar em broadcast pro resto dos computadores (verficação de Hash é bem mais rápida) - as computações param e a transação é validada - quem calcula o Hash primeiro ganha uma grana.
+
