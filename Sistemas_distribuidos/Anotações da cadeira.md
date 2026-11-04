@@ -311,6 +311,7 @@ Screen-saver de windows que monta request quando o PC fica inativo pro PC da bor
 Tipo um P2P centralizado (o servidor central recebe as computações e passa as tarefas)
 É P2P (comp na borda) / Cliente-server (screen-saver cliente chama o server central)
 
+---
 # Computação em nuvem de maneira geral
 - Nuvem é feito pra resolução de problemas de elasticidade principalmente
 - maior parte dos problemas vem de sites de retail
@@ -321,7 +322,30 @@ Tipo um P2P centralizado (o servidor central recebe as computações e passa as 
 - mercado de servidor tá bem saturado (por causa da IA)
 - Nuvem tem despesa operacional apenas (OPEX)
 	- grande argumento é não pagar hardware e pagar por recurso antecipadamente
+- Os caras da Amazon foram os que conseguiram calcular o preço do Pay as you Go
+- A única coisa nova disso aqui é Elasticidade de recurso
+![[Pasted image 20261103203257.png]]
+- Plataformas Cloud normalmente usam sempre reativo pq é mais fácil de justificar cobrança e aplicar regras
+- Contâiner vs VM:
+	- contâiner (e.g. Docker) vai dentro do OS e parece um processo
+		- o que falta nele é o isolamento q temos na VM
+		- mto influenciado por CPU load na volta
+	- VM é mais uma camada de aplicação mesmo
+		- bastante isoladas, com maquinário, hardware e tudo
+- Fazendo resizing na máquina vai largar um limite físico nela eventualmente
+	- o melhor seria calcular quando o limite horizontal se faz necessário
+- Elasticidade tem mtos problemas com falsos positivos
+	- podemos adicionar médias com pesos diferentes pra entregar um valor diferente e evitar custo adicional nas máquinas
+	- ![[Pasted image 20261103204715.png]]
+		- Amazon, GCP e Azure já utilizam essa esquematização
 
+### Computação Serverless
+- Fog computing é um meio termo entre o IoT e a Cloud
+	- Serviços críticos rodam localmente sem precisar ativar a cloud
+	- por causa de latência
+	- Privacidade e dados regionais (permite LGPD compliant)
+- Explainable AI (XAI) é demonstração de features mais pesadas e com mais probabilidade de aparecerem e serem usada na decisão de IA (tirar o fator de caixa-preta)
+- 
 ___
 ## Blockchain
 cadeias descentralizadas de dados
@@ -342,3 +366,19 @@ Hyperledger lida com a blockchain pra ti - sem maiores problemas
 
 ![[Pasted image 20261103200223.png]]
 A mineração é toda no esquema de cálculo de hash - um dos nós vai calcular o hash e mandar em broadcast pro resto dos computadores (verficação de Hash é bem mais rápida) - as computações param e a transação é validada - quem calcula o Hash primeiro ganha uma grana.
+
+Sobre o porquê o bitcoin tem problemas
+- throughput bastante baixo
+- gasto energético desgraçado (computação de quem não encontra o Hash antes é perdida)
+
+Todos os peers aqui tem todas as transações da história - o sistema só engorda e inviabiliza o sistema (energéticamente falando)
+	A gurizada até pode liberar espaço deletando algumas operações
+Etherium e Hyperledger são os Middlewares mais confiáveis pra implementação de blockchains
+
+---
+### NFTS e real digital
+Governo federal lançou o DREX pra resolver o problema de uma parcela da população não ter um trabalho (receber bolsa do governo). O problema daqui era sacar o dinheiro e largar o dinheiro em produtos/serviços não orientados ao bolsa família (e.g. aposta, bebida alcoólica, etc.) - montaram o DREX pra ser pareado com o real e ser gasto com assinatura de CNAE (objetivo/função do CNPJ) - Os DREXs poderiam ser usados em determinados CNAE apenas (engessamento de compra) - ficou pelo caminho dado interesses externos (ainda a ser implementado pelo Estado brasileiro).
+
+A ideia do NFT era pegar coisas não-mensuráveis do mundo real - colocar dentro de um blockchain e assignar um hash pra ele - dessa forma ele teria um valor.
+Ficou apagado por apelo popular mesmo - pouco uso.
+
